@@ -1,0 +1,46 @@
+.job-board {
+    display: grid;
+    justify-items: center;
+}
+
+.load-more {
+    margin-top: 56px;
+    padding-bottom: 104px;
+    display: flex;
+    justify-content: center;
+}
+
+.test {
+    width: 350px;
+    height: 253px;
+
+    background-color: yellow;
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+    .job-board {
+        margin-top: 72px;
+        row-gap: 22px;
+        grid-template-columns: 1fr;
+    }
+}
+
+  /* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .job-board {
+        margin-top: 85px;
+        column-gap: 11px;
+        row-gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .job-board {
+        margin-top: 119px;
+        column-gap: 70px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

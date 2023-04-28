@@ -1,0 +1,47 @@
+.header {
+    width: 100%;
+    background-image: var(--main-bg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--color-white);
+}
+
+nav {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 30px;
+}
+
+nav .primary-button {
+    border: 1px solid var(--color-white);
+    padding-block: 4px;
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+    .header {
+        padding-top: 32px;
+        height: 136px;
+        border-bottom-left-radius: none;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .header {
+        padding-top: 42px;
+        height: 160px;
+        border-bottom-left-radius: 100px;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .header {
+        padding-top: 45px;
+        height: 162px;
+        border-bottom-left-radius: 100px;
+    }
+}

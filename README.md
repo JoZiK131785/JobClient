@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# devjobs par JoZiK
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
 
-## Available Scripts
+1. Cloner le dépôt 
+2. Exécuter la commande `npm install`
+3. Lancer l'application en exécutant la commande `npm start`
 
-In the project directory, you can run:
+## CSS (src)
 
-### `npm start`
+Le site est responsive mobile (mw 320 px), tablet (mw 768px) et desktop (mw 1200px).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `reset.css` : Reset CSS de base
+- `app.css` : Variables CSS et fonts
+- `index.css` : Setup des balises de base, container et boutons reutilisés
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Routes
 
-### `npm test`
+- `/` : Route vers la page Home
+- `/create` : Route vers la page Create
+- `/update/:jobID` : Route vers la page Update (meme page que la Create)
+- `/single/:jobID` : Route vers la Single
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## HOME
 
-### `npm run build`
+- `Header` : Composé d'un titre, d'un bouton Create qui redirige vers la page de création (uniquement disponible sur la page d'accueil)
+[MANQUANT] : et d'un bouton DarkMode
+- `SearchBar` : Composé d'un input pour rechercher les mots clés comme l'intitulé du poste ou l'entreprise, d'un input pour la localisation et d'une checkbox FullTimeOnly. Des listes deroulantes font des propositions de selection ou affiche aucune correspondance si plus rien de match. [MANQUANT] : La fonction Search permet de filtrer le liste actuelle avec les parametres souhaites
+- `JobBoard` : Liste des jobs, triés du plus recent au moins recent. La page n'affiche que les 12 premiers jobs. Un bouton loadMore permet d'en afficher 12 supp mais affiche "Plus de jobs disponibles" si besoin. Chaque jobCard est cliquable et renvoi vers sa single associée.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## SINGLE
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `Header` : Meme composant que sur l'accueil
+- `SingleHeader` : Composé du logo, du nom et de l'URL du site de l'entreprise. Un bouton permet de rediriger l'utilisateur vers le website.
+- `SingleContent` : Composé des datas du job en question. Un bouton apply renvoi vers le lien pour postuler a l'annonce. Un bouton modifier permet d'etre rediriger vers la page Create mais avec une url differente composée de l'id du job. Un bouton supprimer permet de supprimer l'annonce.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## CREATE
 
-### `npm run eject`
+- `Header` : Meme composant que sur l'accueil
+- `Form` : Les inputs permettent de modifier certains champs de l'annonce. Un text apparait si l'un des champs est manquant. 
+[MANQUANT] : Les inputs requirements et role sont manquants... =/
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Note : l'utilisateur est redirigé sur cette page de deux manieres:
+    - `/create` : Les inputs sont vide et lorsque l'utilisateur submit, cela crée un new job
+    - `/update/:jobID` : Les inputs sont preremplis avec les datas du job en question et lorsque l'utilisateur submit, cela update le job.
